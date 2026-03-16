@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:SnowflakeApp.Models"
+             x:Class="SnowflakeApp.GalleryPage"
+             Title="Галерея Снежинок"
+             BackgroundColor="#001020">
+
+	<CollectionView x:Name="CollView" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+		<CollectionView.ItemTemplate>
+			<DataTemplate x:DataType="models:SnowflakeItem">
+				<Frame Margin="10" BackgroundColor="#20FFFFFF" BorderColor="White" CornerRadius="10">
+					<HorizontalStackLayout Spacing="15">
+						<Label Text="❄" FontSize="40" TextColor="White" VerticalOptions="Center"/>
+						<VerticalStackLayout VerticalOptions="Center">
+							<Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold"/>
+							<Label Text="{Binding DateCreated, StringFormat='{0:dd.MM.yyyy HH:mm}'}" TextColor="Silver" FontSize="12"/>
+						</VerticalStackLayout>
+					</HorizontalStackLayout>
+				</Frame>
+			</DataTemplate>
+		</CollectionView.ItemTemplate>
+	</CollectionView>
+</ContentPage>
